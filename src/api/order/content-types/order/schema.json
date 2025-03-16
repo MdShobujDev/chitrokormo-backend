@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "district": {
+      "type": "string",
+      "required": true
+    },
+    "full_address": {
+      "type": "text",
+      "required": true
+    },
+    "number": {
+      "type": "string",
+      "required": false
+    },
+    "payment_method": {
+      "type": "enumeration",
+      "enum": [
+        "cash_on_delivery",
+        "bkash",
+        "nagad"
+      ],
+      "required": true,
+      "default": "cash_on_delivery"
+    },
+    "payment_method_number": {
+      "type": "string",
+      "required": false
+    },
+    "transaction_id": {
+      "type": "string",
+      "unique": true
+    },
+    "tracking_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "processing",
+        "shipped",
+        "in_transit",
+        "out_for_delivery",
+        "delivered",
+        "cancelled",
+        "on_hold",
+        "failed",
+        "returned",
+        "refunded",
+        "partially_shipped",
+        "awaiting_pickup",
+        "delayed"
+      ],
+      "default": "pending",
+      "required": true
+    },
+    "agree_condition": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "total_amount": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    },
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart"
+    }
+  }
+}

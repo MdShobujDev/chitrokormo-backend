@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_cart_products",
+  "info": {
+    "displayName": "cart_products",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "product_quantity": {
+      "type": "integer",
+      "required": false,
+      "min": 1,
+      "default": 1
+    },
+    "size": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    }
+  }
+}

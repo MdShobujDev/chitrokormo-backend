@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "top_products",
+  "info": {
+    "singularName": "top-product",
+    "pluralName": "top-products",
+    "displayName": "top_product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category",
+      "inversedBy": "top_product"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "carousel",
+        "static"
+      ],
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "SKU": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    }
+  }
+}

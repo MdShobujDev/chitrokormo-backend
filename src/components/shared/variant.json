@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_variants",
+  "info": {
+    "displayName": "variant"
+  },
+  "options": {},
+  "attributes": {
+    "stock_status": {
+      "type": "enumeration",
+      "enum": [
+        "in_stock",
+        "out_of_stock",
+        "upcomming"
+      ],
+      "default": "in_stock"
+    },
+    "available_quantity": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "price": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "size": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
